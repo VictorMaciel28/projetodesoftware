@@ -1,5 +1,6 @@
 $(document).ready(function () {
 renderReservas();
+listenerCancel();
 });
 
 function renderReservas() {
@@ -23,13 +24,39 @@ $.ajax({
     }
 })
 }
+var col1;
+var col2;
+var col3;
+var col4;
+
+
+function listenerCancel(){
+    $('.table tbody').on('click','.btn', function(){
+      var currow = $(this).closest('tr');
+      col1=currow.find('td:eq(0)').text();
+      col2=currow.find('td:eq(1)').text();
+      col3=currow.find('td:eq(2)').text();
+      $('#deleteEmployeeModal').modal('show');
+    })
+  }
+
+  function cancelar(){
+    $.post({
+      url: '../servidor/index.php/reserva/cancelar',
+      data:{'col1':col1,'col2':col2,'col3':col3},
+      dataType: "text",
+      success:function(data){
+        alert(data)
+      }
+    })
+  }
 
 function montarreservas(data){
     data.forEach(function (obj, index) {
         var p1 = '<tr meuid="' + index + '"><td>' + obj.NR_VOO + '</td>'
         var p2 = '<td>' + obj.DT_SAIDA_VOO + '</td>'
         var p3 = '<td>0</td>'
-        var p4 = '<td><a href="#deleteEmployeeModal" class="glyphicon glyphicon-ok" data-toggle="modal" >'
+        var p4 = '<td><button type="button" class="btn glyphicon glyphicon-ok"></button>'
         var p5 = '</a></td></tr>'
         var finaldiv = p1 + p2 + p3 + p4 + p5;
         $('#tbodyid').append(finaldiv);

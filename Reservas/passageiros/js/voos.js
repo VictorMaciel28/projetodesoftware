@@ -1,7 +1,7 @@
 $(document).ready(function () {
+montarreserva();
 renderVoos();
 });
-
 
 function renderVoos() {
   $('#tbodyid').html('');
@@ -31,10 +31,10 @@ function renderVoos() {
 function getid(){
   $.ajax({
     type: "POST",
-    url: 'servidor/index.php/id',
+    url: '../servidor/index.php/reservas',
     dataType: "json",
     success: function(data) {
-      console.log(data);
+      alert(data);
     }
   })
 }
@@ -42,16 +42,69 @@ function getid(){
 function montatabela(voosmostrados) {
   $('#tbodyid').html('');
   voosmostrados.forEach(function (obj, index) {
-    var p1 = '<tr meuid="' + index + '"><td>' + obj.DT_SAIDA_VOO + '</td>'
+    var p1 = '<tr meuid="' + index + '"><td>' + obj.NR_VOO + '</td><td>' + obj.DT_SAIDA_VOO + '</td>'
     var p2 = '<td>' + obj.NR_ROTA_VOO + '</td>'
     var p3 = '<td>' + obj.CD_ARNV + '</td>'
-    var p4 = '<td><a href="#deleteEmployeeModal" class="glyphicon glyphicon-ok" data-toggle="modal" >'
-    var p5 = '</a></td></tr>'
+    var p4 = '<td><button type="button" class="btn glyphicon glyphicon-ok"></button></td>'
+    var p5 = '</tr>'
     var finaldiv = p1 + p2 + p3 + p4 + p5;
 
     $('#tbodyid').append(finaldiv);
 
-    //$( "tbody#tbodyid tr:eq(5)" ).css( "backgroundColor", "#ff0" );
+    //$( "tbody#tbodyid tr:eq(5)" ).css( "backgroundColor", "#ff0" );       <a href="#deleteEmployeeModal" class="glyphicon glyphicon-ok" data-toggle="modal"></a>
   
   });
 }
+
+var col1;
+var col2;
+var col3;
+var col4
+
+function montarreserva(){
+  $('.table tbody').on('click','.btn', function(){
+    var currow = $(this).closest('tr');
+    col1=currow.find('td:eq(0)').text();
+    col2=currow.find('td:eq(1)').text();
+    col3=currow.find('td:eq(2)').text();
+    col4=currow.find('td:eq(3)').text();
+    $('#deleteEmployeeModal').modal('show');
+  })
+}
+
+function buscar(){
+  campo = $("#campo").val();
+  $.post({
+    url: '../servidor/index.php/buscavoo',
+    data:{'campo':campo},
+    dataType: "json",
+    success:function(data){
+      voosmostrados = data.slice(0, 15)
+      montatabela(data);
+    }
+  })
+}
+
+function reservar(){
+  $.post({
+    url: '../servidor/index.php/reservar',
+    data:{'col1':col1,'col2':col2,'col3':col3},
+    dataType: "text",
+    success:function(data){
+      alert(data)
+    }
+  })
+}
+
+  /*cole1 = JSON.stringify(col1);
+  $.post({
+    url: '../servidor/index.php/reservar',
+    dataType: "json",
+    success:function(response){
+      alert("asdasd")
+    },
+    error: function () {
+      alert("data");
+    }
+  })
+}*/

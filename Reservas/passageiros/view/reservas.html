@@ -217,16 +217,16 @@
         <div class="modal-content">
           <form>
             <div class="modal-header">						
-              <h4 class="modal-title">Reservar Voo</h4>
+              <h4 class="modal-title">Cancelar Reserva</h4>
               <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
             </div>
             <div class="modal-body">					
-              <p>Você realmente deseja reservar este voo?</p>
-              <p class="text-warning"><small>veja suas reservas na opção reservas</small></p>
+              <p>Você realmente deseja cancelar essa reserva?</p>
+              <p class="text-warning"><small>Essa ação não pode ser desfeita</small></p>
             </div>
             <div class="modal-footer">
               <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-              <input type="submit" class="btn btn-success" value="Reservar">
+              <input type="submit" class="btn btn-danger" onclick="cancelar();"value="Reservar">
             </div>
           </form>
         </div>
@@ -239,8 +239,6 @@
   <!-- /#wrapper -->
 
   <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Menu Toggle Script -->
   <script>
