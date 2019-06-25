@@ -10,7 +10,7 @@
 [![dependencies Status](https://david-dm.org/BlackrockDigital/startbootstrap-simple-sidebar/status.svg)](https://david-dm.org/BlackrockDigital/startbootstrap-simple-sidebar)
 [![devDependencies Status](https://david-dm.org/BlackrockDigital/startbootstrap-simple-sidebar/dev-status.svg)](https://david-dm.org/BlackrockDigital/startbootstrap-simple-sidebar?type=dev)
 
-## Download and Instalação
+## Download e Instalação
 
 Pra usar o sistema, é aconselhado que se vá até o seu servidor na pasta `htdocs` ou `www` em alguns sistemas, e extraia
 o arquivo ou dê git clone.
@@ -41,7 +41,7 @@ Após a instalação, execute o `npm install` e execute o` npm start`, que abrir
 ## Bugs e erros
 
 
-Tem um bug ou um problema com este modelo? [Abra um novo problema] (https://github.com/VictorMaciel28/projetodesoftwarer/issues) aqui no GitHub ou deixe um comentário na [página de visão geral do modelo em Start Bootstrap] (http://startbootstrap.com / template-overviews / simple-sidebar /).
+Tem um bug ou um problema com este modelo? [Abra um novo problema] (https://github.com/VictorMaciel28/projetodesoftwarer/issues) aqui no GitHub ou deixe um comentário.
 
 ## Sobre
 
