@@ -10,7 +10,7 @@
 [![dependencies Status](https://david-dm.org/BlackrockDigital/startbootstrap-simple-sidebar/status.svg)](https://david-dm.org/BlackrockDigital/startbootstrap-simple-sidebar)
 [![devDependencies Status](https://david-dm.org/BlackrockDigital/startbootstrap-simple-sidebar/dev-status.svg)](https://david-dm.org/BlackrockDigital/startbootstrap-simple-sidebar?type=dev)
 
-## Download and Installation
+## Download and Instalação
 
 Pra usar o sistema, é aconselhado que se vá até o seu servidor na pasta `htdocs` ou `www` em alguns sistemas, e extraia
 o arquivo ou dê git clone.
@@ -23,32 +23,32 @@ A partir disso, você pode:
 * [Fork, Clone, or Download on GitHub](https://github.com/VictorMaciel28/projetodesoftware/)
 
 
-## Usage
+## Uso
 
 Antes de começar a utilizar, importe o arquivo `mydb.sql` no seu banco de dados mysql para importar os valores necessários para utilização da view.
 
 Quanquer erro de não aparição de dados pode estar relacionada a caminhos nos arquivos, usuário e senha no banco (arquivo `index.php` dentro das pastas `servidor`)
 
-### Basic Usage
+### Uso básico
 
 Após o download, basta editar os arquivos HTML e CSS incluídos no modelo em seu editor de texto favorito para fazer alterações. Estes são os únicos arquivos que você precisa se preocupar, você pode ignorar todo o resto! Para pré-visualizar as alterações que você faz no código, você pode abrir o arquivo `index.html` no seu navegador.
 
-### Advanced Usage
+### Uso avançado
 
 Após a instalação, execute o `npm install` e execute o` npm start`, que abrirá uma visualização do modelo no navegador padrão, observará as alterações nos arquivos principais do modelo e atualizará o navegador quando as alterações forem salvas. Você pode ver o arquivo `gulpfile.js` para ver quais tarefas estão incluídas no ambiente de desenvolvimento.
 
 
-## Bugs and Issues
+## Bugs e erros
 
 
 Tem um bug ou um problema com este modelo? [Abra um novo problema] (https://github.com/VictorMaciel28/projetodesoftwarer/issues) aqui no GitHub ou deixe um comentário na [página de visão geral do modelo em Start Bootstrap] (http://startbootstrap.com / template-overviews / simple-sidebar /).
 
-## About
+## Sobre
 
 Use como preferir o sistema, mas tenha em mente a etapa de desenvolvimento atual e da responsabilidade por seus usos.
 você pode usá-los para qualquer finalidade, mesmo para projetos comerciais.
 
 
-## Copyright and License
+## Copyright e licensa
 
 Copyright 2013-2019 Blackrock Digital LLC. Code released under the [MIT](https://github.com/BlackrockDigital/startbootstrap-simple-sidebar/blob/gh-pages/LICENSE) license.
