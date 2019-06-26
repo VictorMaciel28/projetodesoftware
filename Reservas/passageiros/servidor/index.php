@@ -88,7 +88,7 @@ switch ($_SERVER['PATH_INFO']) {
         $col1 = $_POST["col1"];
         $col2 = $_POST["col2"];
         $col3 = $_POST["col3"];
-    $id = $_SESSION['id'];
+        $id = $_SESSION['id'];
 
     $sql= "INSERT INTO `itr_resv` (`CD_PSGR`, `NR_VOO`, `DT_SAIDA_VOO`, `PC_DESC_PASG`) VALUES ('$id', '$col1', '$col2', '3');";
     $result = $banco->query($sql);

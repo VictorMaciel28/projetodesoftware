@@ -71,6 +71,70 @@ switch ($_SERVER['PATH_INFO']) {
             }
     break;
 
+    case '/buscavoo':
+        $campo = $_POST["campo"];
+        $sql= "SELECT * FROM itr_voo WHERE `DT_SAIDA_VOO` = '$campo';";
+        $result = $banco->query($sql);
+        if ($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()){
+                $return_arr[] = array(
+                "NR_VOO" => $row['NR_VOO'],
+                "DT_SAIDA_VOO" => $row['DT_SAIDA_VOO'],
+                //"ITR_ARPT_CD_ORIG" => utf8_encode($row['ITR_ARPT_CD_ORIG']),
+                "NR_ROTA_VOO" => $row['NR_ROTA_VOO'],
+                "CD_ARNV" => $row['CD_ARNV']
+                );};
+            echo json_encode($return_arr);
+            }
+    break;
+
+    case '/rotas/buscar':
+        $campo = $_POST["campo"];
+        $sql= "SELECT * FROM itr_rota_voo WHERE `NR_ROTA_VOO` = '$campo';";
+        $result = $banco->query($sql);
+        if ($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()){
+                $return_arr[] = array(
+                "NR_VOO" => $row['NR_VOO'],
+                "DT_SAIDA_VOO" => $row['DT_SAIDA_VOO'],
+                //"ITR_ARPT_CD_ORIG" => utf8_encode($row['ITR_ARPT_CD_ORIG']),
+                "NR_ROTA_VOO" => $row['NR_ROTA_VOO'],
+                "CD_ARNV" => $row['CD_ARNV']
+                );};
+            echo json_encode($return_arr);
+            }
+    break;
+
+    case 'voos/deletar':
+    $col1 = $_POST["col1"];
+    $col2 = $_POST["col2"];
+    $col3 = $_POST["col3"];
+    $col4 = $_POST["col4"];
+    $id = $_SESSION['id'];
+    $sql= "DELETE FROM `itr_voo` WHERE `NR_VOO`= $col1 AND `DT_SAIDA_VOO`=$col2 AND `NR_ROTA_VOO`= '$col3' AND `CD_ARNV`= '$col4';";
+    $result = $banco->query($sql);
+    if ($result=='1'){
+        echo 'Excluído com sucesso!';
+    }else{
+        echo 'Erro na exclusão';
+    }
+    break;
+
+    case '/voo/inserir':
+        $numero = $_POST["numero"];
+        $data = $_POST["data"];
+        $rota = $_POST["rota"];
+        $aeronave = $_POST["aeronave"];
+        $sql= "INSERT INTO `itr_voo` (`NR_VOO`, `DT_SAIDA_VOO`, `NR_ROTA_VOO`, `CD_ARNV`) VALUES ('$numero', '$data', '$rota', '$aeronave');";
+        $result = $banco->query($sql);
+        //INSERT INTO * FROM itr_psgr WHERE `NM_PSGR` = '$nome' AND `CD_PSGR` = '$codigo';";
+        if ($result=='1'){
+            echo '<script type="text/javascript">alert("Incluido com sucesso!")</script>';
+        }else{
+            echo '<script type="text/javascript">alert("Ocorreu algum erro...")</script>';
+        }
+    break;
+
     case '/aeronaves':
         $sql= "SELECT * FROM itr_arnv";
         $result = $banco->query($sql);
@@ -162,6 +226,21 @@ switch ($_SERVER['PATH_INFO']) {
                 );};
         echo json_encode($return_arr);
             }
+    break;
+
+    case '/voo/deletar':
+        $col1 = $_POST["col1"];
+        $col2 = $_POST["col2"];
+        $col3 = $_POST["col3"];
+        $col4 = $_POST["col4"];
+        $id = $_SESSION['id'];
+        $sql= "DELETE FROM `itr_voo` WHERE `NR_VOO`= $col1 AND DT_SAIDA_VOO= '$col2' AND `NR_ROTA_VOO`= `$col3` AND `CD_ARNV`= $col4;";
+        $result = $banco->query($sql);
+        if ($result=='1'){
+            echo 'Excluído com sucesso!';
+        }else{
+            echo 'Erro na exclusão';
+        }
     break;
 
     default:

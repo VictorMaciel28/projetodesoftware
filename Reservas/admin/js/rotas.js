@@ -25,17 +25,33 @@ $.ajax({
 })
 }
 
+function buscar(){
+    campo = $("#campo").val();
+    $.post({
+      url: '../servidor/index.php/rotas/buscar',
+      data:{'campo':campo},
+      dataType: "json",
+      success:function(data){
+        rotasmostradas = data.slice(0, 15)
+        montarrotas(rotasmostradas);
+      },error: function () {
+        alert("Algum problema com a conectividade com o banco.");
+      }
+    })
+  }
+
 function montarrotas(data){
+    $('#tbodyid').html('');
     data.forEach(function (obj, index) {
-        var p1 = '<tr meuid="' + index + '"><td>' + obj.NR_ROTA_VOO + '</td>'
-        var p2 = '<td>' + obj.ITR_ARPT_CD_ORIG + '</td>'
-        var p3 = '<td>'+ obj.ITR_ARPT_CD_DEST +'</td>'
-        if (obj.VR_PASG!=null){var p4 = '<td>'+ obj.VR_PASG +'</td>'}else{var p4='<td>Sem dado</td>';}
-        var p5 = '<td><a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a></td>'
-        var p6 = '</a></td></tr>'
-        var finaldiv = p1 + p2 + p3 + p4 + p5 + p6;
-        $('#tbodyid').append(finaldiv);
-        //$( "tbody#tbodyid tr:eq(5)" ).css( "backgroundColor", "#ff0" );
+    var p1 = '<tr meuid="' + index + '"><td>' + obj.NR_ROTA_VOO + '</td>'
+    var p2 = '<td>' + obj.ITR_ARPT_CD_ORIG + '</td>'
+    var p3 = '<td>'+ obj.ITR_ARPT_CD_DEST +'</td>'
+    if (obj.VR_PASG!=null){var p4 = '<td>'+ obj.VR_PASG +'</td>'}else{var p4='<td>Sem dado</td>';}
+    var p5 = '<td><a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a></td>'
+    var p6 = '</a></td></tr>'
+    var finaldiv = p1 + p2 + p3 + p4 + p5 + p6;
+    $('#tbodyid').append(finaldiv);
+    //$( "tbody#tbodyid tr:eq(5)" ).css( "backgroundColor", "#ff0" );
     });
 }
 

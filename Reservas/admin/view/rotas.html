@@ -106,10 +106,15 @@
         <div class="table-wrapper">
             <div class="table-title">
               <div class="row">
-                  <div class="col-sm-6">
+                  <div class="col-sm-4">
                     <h2>Gerenciar <b>Rotas</b></h2>
                   </div>
-                  <div class="col-sm-6">
+                  <div class="col-sm-2.5">
+                      <label for="text">Número da Rota</label>
+                      <input id="campo" type="text" style="color:black;" placeholder="0">
+                      <button class="btn btn-success" onclick="buscar();"> Buscar</button>
+                    </div>	
+                  <div class="col-sm-5">
                     <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Adicionar novo</span></a>
                     <!--<a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Delete</span></a>		-->				
                   </div>
@@ -160,24 +165,24 @@
         <div class="modal-content">
           <form>
             <div class="modal-header">						
-              <h4 class="modal-title">Add Employee</h4>
+              <h4 class="modal-title">Acicionar Rota</h4>
               <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
             </div>
             <div class="modal-body">					
               <div class="form-group">
-                <label>Name</label>
+                <label>Número da Rota</label>
                 <input type="text" class="form-control" required>
               </div>
               <div class="form-group">
-                <label>Email</label>
-                <input type="email" class="form-control" required>
+                <label>Aeroporto de Origem</label>
+                <input type="text" class="form-control" required>
               </div>
               <div class="form-group">
-                <label>Address</label>
-                <textarea class="form-control" required></textarea>
+                <label>Aeroporto de Destino</label>
+                <input type="text" class="form-control" required>
               </div>
               <div class="form-group">
-                <label>Phone</label>
+                <label>Valor da Passagem</label>
                 <input type="text" class="form-control" required>
               </div>					
             </div>
